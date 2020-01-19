@@ -9,7 +9,7 @@ class App extends Component {
     return (
       <div className="App">
         <Navigation />
-        {/* Hier muss noch der Router gemountet werden */}
+        <Router />
       </div>
     );
   }

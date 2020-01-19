@@ -9,7 +9,7 @@ class Router extends Component {
   render() {
     return (
       <div className="AppRouter">
-        <Insert />
+        {/*<Insert />*/}
         <RecipeOverview />
         <Recipe />
       </div>
