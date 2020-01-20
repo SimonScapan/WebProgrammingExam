@@ -10,7 +10,7 @@ import ListItemAvatar from '@material-ui/core/ListItemAvatar';
 import Avatar from '@material-ui/core/Avatar';
 import Typography from '@material-ui/core/Typography';
 
-import logo from './pictures/malibubaybreeze.png';
+import logo from './pictures/Caipirinha.jpg';
 
 const useStyles = makeStyles(theme => ({
     root: {
@@ -27,7 +27,7 @@ const useStyles = makeStyles(theme => ({
     const classes = useStyles();
   
     return (
-        <ListItem alignItems="flex-start">
+        <ListItem button alignItems="flex-start">
         <img src={logo} style={{width: 50, height: 50}} alt="Logo" />
         <ListItemText primary="Summer BBQ" />
         </ListItem>

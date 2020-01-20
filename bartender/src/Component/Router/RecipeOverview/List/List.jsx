@@ -25,11 +25,11 @@ const useStyles = makeStyles(theme => ({
         return (
             <List className='List'>
                 <ListItem alignItems="flex-start" >
-                <ListElement />
+                <ListElement href='/Recipe' />
                 </ListItem>
                 <Divider variant="inset" component="li" />
                 <ListItem alignItems="flex-start" >
-                <ListElement />
+                <ListElement href='/Recipe' />
                 </ListItem>
             </List>
         );
