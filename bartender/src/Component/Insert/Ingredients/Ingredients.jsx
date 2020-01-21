@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './Ingredients.css';
-import Ingredient from './Ingredient/Ingredient.jsx';
+import Ingredient from './Ingredient/Ingredient.jsx.js';
 
 
 

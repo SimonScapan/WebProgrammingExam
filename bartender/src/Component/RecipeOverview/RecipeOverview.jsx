@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './RecipeOverview.css';
-import Liste from './List/List.jsx';
+import Liste from './List/List.jsx.js';
 
 
 

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import './ListElement.css';
+import './Ingredients.css';
+import Ingredient from './Ingredient/Ingredient.jsx.js';
 
 import { makeStyles } from '@material-ui/core/styles';
 import List from '@material-ui/core/List';
@@ -10,7 +11,6 @@ import ListItemAvatar from '@material-ui/core/ListItemAvatar';
 import Avatar from '@material-ui/core/Avatar';
 import Typography from '@material-ui/core/Typography';
 
-import logo from './pictures/Caipirinha.jpg';
 
 const useStyles = makeStyles(theme => ({
     root: {
@@ -22,22 +22,22 @@ const useStyles = makeStyles(theme => ({
       display: 'inline',
     },
   }));
-  
-  export default function ListElement() {
-    const classes = useStyles();
-  
-    return (
-        <ListItem button alignItems="flex-start">
-        <img src={logo} style={{width: 50, height: 50}} alt="Logo" />
-        <ListItemText primary="Summer BBQ" />
-        </ListItem>
-      );
-  }
 
 
+class Ingredients extends Component{
+    render(){
+        return (
+            <List className='Ingredients'>
+                <ListItem alignItems="flex-start" >
+                <Ingredient />
+                </ListItem>
+                <Divider variant="inset" component="li" />
+                <ListItem alignItems="flex-start" >
+                <Ingredient />
+                </ListItem>
+            </List>
+            );
+    }
+}
 
-
-
-
-
-
+export default Ingredients;

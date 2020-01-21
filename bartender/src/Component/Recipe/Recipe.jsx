@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import './Recipe.css';
-import RecipeHead from './RecipeHead/RecipeHead.jsx';
-import Ingredients from './Ingredients/Ingredients.jsx';
-import Preparation from './Preparation/Preparation.jsx';
+import RecipeHead from './RecipeHead/RecipeHead.jsx.js';
+import Ingredients from './Ingredients/Ingredients.jsx.js';
+import Preparation from './Preparation/Preparation.jsx.js';
 
 
 class Recipe extends Component {

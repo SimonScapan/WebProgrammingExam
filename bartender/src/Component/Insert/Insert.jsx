@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './Insert.css';
-import AddIngredient from './AddIngredient/AddIngredient.jsx';
-import Ingredients from './Ingredients/Ingredients.jsx';
+import AddIngredient from './AddIngredient/AddIngredient.jsx.js';
+import Ingredients from './Ingredients/Ingredients.jsx.js';
 
 
 class Insert extends Component {
