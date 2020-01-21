@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './Ingredients.css';
-import Ingredient from './Ingredient/Ingredient.jsx.js';
+import Ingredient from './Ingredient/Ingredient.jsx';
 
 import { makeStyles } from '@material-ui/core/styles';
 import List from '@material-ui/core/List';

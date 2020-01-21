@@ -1,14 +1,17 @@
 import React, { Component } from 'react';
 import './RecipeOverview.css';
-import Liste from './List/List.jsx.js';
 
 
 
 class RecipeOverview extends Component {
+  constructor(props){
+    super(props)
+    this.state={props}
+  }
   render() {
     return (
       <div className="RecipeOverview">
-        <Liste />
+
       </div>
     );
   }

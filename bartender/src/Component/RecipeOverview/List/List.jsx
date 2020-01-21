@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './List.css';
-import ListElement from './ListElement/ListElement.jsx.js';
+import ListElement from './ListElement/ListElement.jsx';
 
 import { makeStyles } from '@material-ui/core/styles';
 import List from '@material-ui/core/List';

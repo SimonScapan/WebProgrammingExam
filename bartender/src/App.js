@@ -1,11 +1,9 @@
 import React, { Component } from 'react';
 import './App.css';
-import {Router,Route,Switch} from "react-router-dom";
+import {BrowserRouter} from "react-router-dom";
 
 import Navigation from      './Component/Navigation/Navigation.jsx';
-import Insert from          './Component/Insert/Insert.jsx.js';
-import RecipeOverview from  './Component/RecipeOverview/RecipeOverview.jsx.js';
-import Recipe from          './Component/Recipe/Recipe.jsx.js';
+
 
 class App extends Component {
   state = {
@@ -63,18 +61,14 @@ class App extends Component {
     ]
   }
 
+
+
   render() {
     return (
       <div className="App">
-        <Navigation />
-        <Router>
-          <Navigation />
-          <Switch>
-            <Route path="/Insert" render={() => <Insert {...this.state}/>} exact />
-            <Route path="/Overview" render={() => <RecipeOverview {...this.state}/>}  exact />
-            <Route path="/Recipe" render={() => <Recipe {...this.state}/>} exact />
-          </Switch>
-        </Router>
+        <BrowserRouter>
+          <navigation />
+        </BrowserRouter>
       </div>
     );
   }

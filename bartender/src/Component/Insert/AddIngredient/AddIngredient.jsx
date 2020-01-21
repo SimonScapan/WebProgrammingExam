@@ -1,15 +1,28 @@
 import React, { Component } from 'react';
 import './AddIngredient.css';
 
+import { makeStyles } from '@material-ui/core/styles';
+import TextField from '@material-ui/core/TextField';
+import Button from '@material-ui/core/Button';
 
-class AddIngredient extends Component {
-  render() {
-    return (
-      <div className="AddIngredient">
+const useStyles = makeStyles(theme => ({
+  root: {
+    '& > *': {
+      margin: theme.spacing(1),
+      width: 200,
+    },
+  },
+}));
 
-      </div>
-    );
-  }
+
+export default function AddIngredient() {
+  const classes = useStyles();
+
+  return (
+    <form className={classes.root} noValidate autoComplete="off">
+      <p>Neue Zutaten hinzufügen: </p>
+      <TextField id="buy-ingredient" label="Zutat" variant="outlined" />
+      <Button>Kaufen</Button>
+    </form>
+  );
 }
-
-export default AddIngredient;

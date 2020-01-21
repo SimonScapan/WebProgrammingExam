@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './Preparation.css';
-import Step from './Step/Step.jsx.js';
+import Step from './Step/Step.jsx';
 
 
 
