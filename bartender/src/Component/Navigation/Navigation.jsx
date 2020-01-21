@@ -15,7 +15,7 @@ const useStyles = makeStyles(theme => ({
     root: {
       flexGrow: 1,
     },
-    menuButton: {
+    Button: {
       marginRight: theme.spacing(1),
     },
     title: {
@@ -27,13 +27,13 @@ class Navigation extends React.Component {
 
     constructor(props) {
         super(props);
-        this.state = { isOpen: false }
+        this.state = props;
+        this.setState({isOpen: false});
     }
 
     render() {
         return (
             <div>
-              <nav>
                 <AppBar position="static">
                     <Toolbar>
                         <Typography variant="h6">Bartender</Typography>
@@ -41,23 +41,22 @@ class Navigation extends React.Component {
                         <Link to = '/Insert'>
                         <Button color="inherit" href='/Insert'>Zutaten hinzufügen</Button> 
                         </Link>
-                        
+
                         <Link to = '/Overview'>
                         <Button color="inherit" href='/Overview'>Rezeptübersicht</Button>
                         </Link>
 
                         <Link to = '/Recipe'>
-                        <Button color="inherit" href='/Recipe'>Rezeptübersicht</Button>
+                        <Button color="inherit" href='/Recipe'>Rezept</Button>
                         </Link>
 
                     </Toolbar>
                 </AppBar>
-              </nav>
 
               <Switch>
-                <Route path="/Insert" render={() => <Insert/>} exact />
-                <Route path="/Overview" render={() => <RecipeOverview/>} exact />
-                <Route path="/Recipe" render={() => <Recipe/>} exact />
+                <Route path="/Insert" render={() => <Insert {...this.state.ingredients}/>} exact />
+                <Route path="/Overview" render={() => <RecipeOverview {...this.state.cocktail}/>} exact />
+                <Route path="/Recipe" render={() => <Recipe {...this.state.cocktail}/>} exact />
               </Switch>
             </div>
         );

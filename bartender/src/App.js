@@ -67,7 +67,7 @@ class App extends Component {
     return (
       <div className="App">
         <BrowserRouter>
-          <navigation />
+          <Navigation {...this.state}/>
         </BrowserRouter>
       </div>
     );

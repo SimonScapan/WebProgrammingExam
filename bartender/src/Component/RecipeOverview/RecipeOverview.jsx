@@ -11,7 +11,7 @@ class RecipeOverview extends Component {
   render() {
     return (
       <div className="RecipeOverview">
-
+        <p>Hallo</p>
       </div>
     );
   }
