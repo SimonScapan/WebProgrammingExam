@@ -1,20 +1,23 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './Recipe.css';
+import Ingredient from './Ingredient/Ingredient.jsx'
+import Step from './Step/Step.jsx'
+import Head from './Head/Head.jsx'
 
 
-
-class Recipe extends Component {
-  constructor(props){
-    super(props)
-    this.state={props}
-  }
-  render() {
-    return (
-      <div className="Recipe">
-
-      </div>
-    );
-  }
+export default function Recipe(cockt) {
+  return (
+    
+    <table className="contentTable">
+      <td>
+          <Head state={cockt.state[cockt.aktiv]}/>
+      </td>
+      <td>
+        <Ingredient state={cockt.state[cockt.aktiv]}/>
+      </td>
+      <td>
+          <Step state={cockt.state[cockt.aktiv]} />
+      </td>
+    </table>
+  );
 }
-
-export default Recipe;

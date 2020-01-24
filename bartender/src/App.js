@@ -4,24 +4,23 @@ import {BrowserRouter} from "react-router-dom";
 
 import Navigation from      './Component/Navigation/Navigation.jsx';
 
-
-class App extends Component {
+class App extends React.Component {
   state = {
     cocktails:
     [
-      {Cocktial:"Apple Martini", Ingredient: ["Absolut Citron","Nordhäuser Saurer Apfel","Galliano","Midori"], Step: ["Alle Zutaten kurz kräftig shaken","Drink in eine Cocktailschale abseihen","Mit einer Apfelspalte (Granny Smith) dekorieren"]},
-      {Cocktail:"Bombay Crushed", Ingredient: ["Bombay Sapphire Gin","Limettensaft","Zuckersirup","Kumquats"], Step: ["Glas zur Hälfte mit Crushed Ice füllen","Kumquats halbieren und ins Glas geben","Schale leicht quetschen","Bombay und Limettensaft und Zuckersirup hinzugeben","Umrühren und mit Crushed Ice auffüllen","Mit einem Strohhalm servieren"]},
-      {Cocktail:"Caipirinha", Ingredient: ["Cachaca","Weißer Rohrzucker","Limette"], Step: ["Limette heiß abwaschen und auf einem Tisch rollen oder durchkneten","Die Enden abschneiden und die Limette blätterförmig in Scheiben schneiden","Limette in ein stabiles Caipirinha-Glas geben","Zucker dazugeben","Mit einem Stößel gut stampfen","Cachaca darauf geben","Das Glas mit Crushed Ice auffüllen","Alles umrühren","Mit kurzem Strohhalm servieren"]},
-      {Cocktail:"Cosmopolitan", Ingredient: ["Absolut Citron","Cointreau","Limettensaft","Cranberrysaft"], Step:["Zutaten mit Eiswürfeln kurz aber kräftig shaken","In eine Cocktailschale abseihen"] },
-      {Cocktail:"El Diablo", Ingredient: ["Sauza Hornitos","Limettensaft","Cassissee","Ginger Ale"], Step:["Tequila und Limettensaft und Cassissee zusammen mit ein paar Eiswürfeln in ein Longdrinkglas geben","Kurz umrühren und mit eiskaltem Ginger Ale auffüllen","Mit Limettenscheibe dekorieren"]},
-      {Cocktail:"Gin Fizz", Ingredient: ["Gordon's London Dry Gin","Zitronensaft","Zuckersirup","Soda"], Step:["Eiswürfel mit Gin und Zitronensaft und Zuckersirup in den Shaker geben","Shaker in ein Küchentuch (Baumwolltuch) einwickeln","Kräftig und lange shaken","In ein mit trockenen Eiswürfeln gefülltes Longdrinkglas abseihen","Mit kaltem Soda auffüllen","Vorsichtig einmal umrühren"] },
-      {Cocktail:"Long Beach Iced Tea", Ingredient: ["Wodka","Gordon's London Dry Gin","Midori","Mount Gay Premium White Rum","Triple Sec","Cranberrysaft"], Step:["Alle Zutaten kurz und kräftig shaken","In ein Longdrinkglas mit Crushed Ice abseihen"] },
-      {Cocktail:"Mai Tai", Ingredient: ["Myer's Rum","Mount Gay Premium White Rum","Bols Curacao Red","Zitronensaft","Limettensaft","Zuckersirup"], Step:["Mit Eiswürfeln shaken","In ein Tropical-Glas abseihen","Mit Orangenscheibe und Minze und Cocktailkirsche garnieren"] },
-      {Cocktail:"Margarita", Ingredient: ["Sauza Hornitos","Cointreau","Zitronensaft"], Step:["Eiswürfel und Tequila und Cointreau und Zitronensaft in den Shaker geben","Kurz und kräftig shaken","In ein Cocktailglas mit Salzrand abseihen"] },
-      {Cocktail:"Martini Dry", Ingredient: ["Bombay Sapphire","Noilly Prat","Oliven"], Step:["Rührglas mit kalten trockenen Eiswürfeln füllen","Gekühlten Noilly Prat und Bombay Sapphire dazu geben","Mit einem Barlöffel von unten nach oben kräftig rühren","If the ice and the gin are moving at the same speed you are not succeeding - P. Harrington","In ein gut vorgekühltes Cocktailglas abseihen und Oliven ins Glas geben","Evtl. zusätzliche Oliven in einer extra Schale reichen"] },
-      {Cocktail:"Singapore Sling", Ingredient: ["Cherry Heering","Gordon's London Dry Gin","Zitronensaft","Zucker","Benedictine"], Step:["Alle Zutaten außer Benedictine mit viel Crushed Ice kurz shaken","Nicht abseihen","Sondern den ganzen Shaker-Inhalt in ein Glas geben","Benedictine aufschwimmen lassen","Mit einer Cocktailkirsche dekorieren"] },
-      {Cocktail:"Swimmingpool", Ingredient: ["Mount Gay Premium White Rum","Wodka","Sahne","Cream of Coconut","Ananassaft"], Step:["Alle Zutaten mit Crushed Ice kräftig shaken","Den Shaker dabei am besten in ein Tuch einwickeln","In ein mit Crushed Ice gefülltes Tropical Glas abseihen","Curacao Blue darübergeben und mit Cocktailkirsche und Ananas dekorieren"] },
-      {Cocktail:"Whisky Sour", Ingredient: ["Crown Royal","Zitronensaft","Zuckersirup"], Step:["Mit Eiswürfeln shaken und in ein Sour-Glas oder einen kleinen Tumbler abseihen","Mit einer Cocktailkirsche mit Stiel dekorieren"] },
+      {id:0,match:0,Cocktail:"Apple Martini",Source:"'./pictures/Apple Martini.jpg'",Ingredient: ["Absolut Citron","Nordhäuser Saurer Apfel","Galliano","Midori"], Step: ["Alle Zutaten kurz kräftig shaken","Drink in eine Cocktailschale abseihen","Mit einer Apfelspalte (Granny Smith) dekorieren"]},
+      {id:1,match:0,Cocktail:"Bombay Crushed",Source:"'./pictures/Bombay Crushed.jpg'", Ingredient: ["Bombay Sapphire Gin","Limettensaft","Zuckersirup","Kumquats"], Step: ["Glas zur Hälfte mit Crushed Ice füllen","Kumquats halbieren und ins Glas geben","Schale leicht quetschen","Bombay und Limettensaft und Zuckersirup hinzugeben","Umrühren und mit Crushed Ice auffüllen","Mit einem Strohhalm servieren"]},
+      {id:2,match:0,Cocktail:"Caipirinha",Source:"'./pictures/Caipirinha.jpg'", Ingredient: ["Cachaca","Weißer Rohrzucker","Limette"], Step: ["Limette heiß abwaschen und auf einem Tisch rollen oder durchkneten","Die Enden abschneiden und die Limette blätterförmig in Scheiben schneiden","Limette in ein stabiles Caipirinha-Glas geben","Zucker dazugeben","Mit einem Stößel gut stampfen","Cachaca darauf geben","Das Glas mit Crushed Ice auffüllen","Alles umrühren","Mit kurzem Strohhalm servieren"]},
+      {id:3,match:0,Cocktail:"Cosmopolitan",Source:"'./pictures/Cosmopolitan.jpg'", Ingredient: ["Absolut Citron","Cointreau","Limettensaft","Cranberrysaft"], Step:["Zutaten mit Eiswürfeln kurz aber kräftig shaken","In eine Cocktailschale abseihen"] },
+      {id:4,match:0,Cocktail:"El Diablo",Source:"'./pictures/El Diablo.jpg'", Ingredient: ["Sauza Hornitos","Limettensaft","Cassissee","Ginger Ale"], Step:["Tequila und Limettensaft und Cassissee zusammen mit ein paar Eiswürfeln in ein Longdrinkglas geben","Kurz umrühren und mit eiskaltem Ginger Ale auffüllen","Mit Limettenscheibe dekorieren"]},
+      {id:5,match:0,Cocktail:"Gin Fizz",Source:"'./pictures/Gin Fizz.jpg'", Ingredient: ["Gordon's London Dry Gin","Zitronensaft","Zuckersirup","Soda"], Step:["Eiswürfel mit Gin und Zitronensaft und Zuckersirup in den Shaker geben","Shaker in ein Küchentuch (Baumwolltuch) einwickeln","Kräftig und lange shaken","In ein mit trockenen Eiswürfeln gefülltes Longdrinkglas abseihen","Mit kaltem Soda auffüllen","Vorsichtig einmal umrühren"] },
+      {id:6,match:0,Cocktail:"Long Beach Iced Tea",Source:"./pictures/Long Beach Iced Tea.jpg", Ingredient: ["Wodka","Gordon's London Dry Gin","Midori","Mount Gay Premium White Rum","Triple Sec","Cranberrysaft"], Step:["Alle Zutaten kurz und kräftig shaken","In ein Longdrinkglas mit Crushed Ice abseihen"] },
+      {id:7,match:0,Cocktail:"Mai Tai",Source:"./pictures/Mai Tai.jpg", Ingredient: ["Myer's Rum","Mount Gay Premium White Rum","Bols Curacao Red","Zitronensaft","Limettensaft","Zuckersirup"], Step:["Mit Eiswürfeln shaken","In ein Tropical-Glas abseihen","Mit Orangenscheibe und Minze und Cocktailkirsche garnieren"] },
+      {id:8,match:0,Cocktail:"Margarita",Source:"./pictures/Margarita.jpg", Ingredient: ["Sauza Hornitos","Cointreau","Zitronensaft"], Step:["Eiswürfel und Tequila und Cointreau und Zitronensaft in den Shaker geben","Kurz und kräftig shaken","In ein Cocktailglas mit Salzrand abseihen"] },
+      {id:9,match:0,Cocktail:"Martini Dry",Source:"./pictures/Martini Dry.jpg", Ingredient: ["Bombay Sapphire","Noilly Prat","Oliven"], Step:["Rührglas mit kalten trockenen Eiswürfeln füllen","Gekühlten Noilly Prat und Bombay Sapphire dazu geben","Mit einem Barlöffel von unten nach oben kräftig rühren","If the ice and the gin are moving at the same speed you are not succeeding - P. Harrington","In ein gut vorgekühltes Cocktailglas abseihen und Oliven ins Glas geben","Evtl. zusätzliche Oliven in einer extra Schale reichen"] },
+      {id:10,match:0,Cocktail:"Singapore Sling",Source:"./pictures/Singapore Sling.jpg", Ingredient: ["Cherry Heering","Gordon's London Dry Gin","Zitronensaft","Zucker","Benedictine"], Step:["Alle Zutaten außer Benedictine mit viel Crushed Ice kurz shaken","Nicht abseihen","Sondern den ganzen Shaker-Inhalt in ein Glas geben","Benedictine aufschwimmen lassen","Mit einer Cocktailkirsche dekorieren"] },
+      {id:11,match:0,Cocktail:"Swimmingpool",Source:"./pictures/Swimmingpool.jpg", Ingredient: ["Mount Gay Premium White Rum","Wodka","Sahne","Cream of Coconut","Ananassaft"], Step:["Alle Zutaten mit Crushed Ice kräftig shaken","Den Shaker dabei am besten in ein Tuch einwickeln","In ein mit Crushed Ice gefülltes Tropical Glas abseihen","Curacao Blue darübergeben und mit Cocktailkirsche und Ananas dekorieren"] },
+      {id:12,match:0,Cocktail:"Whisky Sour",Source:"./pictures/Whisky Sour.jpg", Ingredient: ["Crown Royal","Zitronensaft","Zuckersirup"], Step:["Mit Eiswürfeln shaken und in ein Sour-Glas oder einen kleinen Tumbler abseihen","Mit einer Cocktailkirsche mit Stiel dekorieren"] },
     ],
     ingredients:
     [
@@ -58,16 +57,42 @@ class App extends Component {
       {Ingredient:"Cream of Coconut", selected:true},
       {Ingredient:"Ananassaft", selected:true},
       {Ingredient:"Crown Royal", selected:true},
-    ]
+    ],
+    activerecipe:0
   }
 
+  addIngredientToState = (ingredient) => {
+    this.setState({ingredients:this.state.ingredients.push({Ingredient: ingredient, selected: false})});
+  }
 
+  changeActiveRecipe = (id)=>{
+    this.setState({activerecipe:id})
+  }
 
+  match = ()=>{
+    let array = [];
+    this.state.ingredients.map((value) => {array.push(value.Ingredient)});
+    let point;
+    this.state.cocktails.forEach((element) => {
+      console.log(element.Ingredient);
+      console.log(array);
+      console.log(element.match);
+      point = element.Ingredient-array;
+      console.log(point);
+      //this.setState({element.match:point});
+    });
+  }
+
+  
+  componentDidMount() {
+    this.match();
+  }
+  
   render() {
     return (
       <div className="App">
         <BrowserRouter>
-          <Navigation {...this.state}/>
+          <Navigation state={this.state} addIngredient={this.addIngredientToState} changeActive={this.changeActiveRecipe}/>
         </BrowserRouter>
       </div>
     );

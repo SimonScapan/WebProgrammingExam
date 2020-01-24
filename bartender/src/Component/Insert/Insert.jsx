@@ -16,42 +16,44 @@ const useStyles = makeStyles(theme => ({
 }));
 
 
-export default function Insert(props) {
+export default function Insert(input) {
   const classes = useStyles();
-
   let content=[];
-  let ingre=0;
-  let sele=0;
 
-  console.log(props);
+  console.log(input);
 
-  props.map((Element) => (
+
+  Object.values(input).forEach(element=>{
+    console.log(element)
     content.push(
       <tr>
         <td>
-          {Element.Ingredient}
+          {element.Ingredient}
         </td>
         <td>
-          <checkbox checked={Element.selected}/>
+          <Checkbox checked={element.selected}/>
         </td>
       </tr>
     )
-  ));
+  });
 
   return (
     <form className={classes.root} noValidate autoComplete="off">
       <div>
         <p>Neue Zutaten hinzufügen: </p>
-        <TextField id="buy-ingredient" label="Zutat" variant="outlined" />
+        <TextField id="buy-ingredient" label="Zutat" variant="outlined" value={content.Insert} onChange={content.handleChange}/>
         <Button variant="contained">Kaufen</Button>
       </div>
 
       <div>
         <p>Vorhandene Zutaten:</p>
-        <table>
+        <table className="contentTable">
           {content}
         </table>
+      </div>
 
+      <div>
+        <Button variant="contained" href='/Overview'>Drinks anzeigen</Button>
       </div>
     </form>
   );
