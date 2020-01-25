@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import './Insert.css';
 
 import { makeStyles } from '@material-ui/core/styles';
-import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import Checkbox from '@material-ui/core/Checkbox';
+import {Link} from "react-router-dom";
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -20,11 +20,7 @@ export default function Insert(input) {
   const classes = useStyles();
   let content=[];
 
-  console.log(input);
-
-
-  Object.values(input).forEach(element=>{
-    console.log(element)
+  Object.values(input.state).forEach(element=>{
     content.push(
       <tr>
         <td>
@@ -33,27 +29,20 @@ export default function Insert(input) {
         <td>
           <Checkbox checked={element.selected}/>
         </td>
-      </tr>
+      </tr> 
     )
   });
 
   return (
     <form className={classes.root} noValidate autoComplete="off">
       <div>
-        <p>Neue Zutaten hinzufügen: </p>
-        <TextField id="buy-ingredient" label="Zutat" variant="outlined" value={content.Insert} onChange={content.handleChange}/>
-        <Button variant="contained">Kaufen</Button>
-      </div>
-
-      <div>
-        <p>Vorhandene Zutaten:</p>
+        <h1>Vorhandene Zutaten:</h1>
+        <Button variant="contained" component={Link} to={'/Overview'} onClick={() => input.match()}>
+          Drinks anzeigen
+        </Button>
         <table className="contentTable">
           {content}
         </table>
-      </div>
-
-      <div>
-        <Button variant="contained" href='/Overview'>Drinks anzeigen</Button>
       </div>
     </form>
   );

@@ -6,7 +6,6 @@ export default function Step(props) {
     let ste=[];
     let input = props.state.Step;
 
-    console.log(props.state.Step);
     Object.values(input).map((step)=>{
         ste.push(
         <table>

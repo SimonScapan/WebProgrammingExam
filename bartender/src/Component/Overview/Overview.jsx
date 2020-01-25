@@ -30,8 +30,7 @@ export default function Overview(props) {
       </table>
     )
   } );
-
-  console.log(content);
+  
   return (
     <form>
       <div>

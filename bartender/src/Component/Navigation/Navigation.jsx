@@ -9,6 +9,7 @@ import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
+import ButtonGroup from '@material-ui/core/ButtonGroup';
 
 class Navigation extends React.Component {
 
@@ -17,15 +18,18 @@ class Navigation extends React.Component {
             <div>
                 <AppBar position="static">
                     <Toolbar>
-                        <Typography variant="h6">Bartender</Typography>
-                        <Button variant="contained" component={Link} to={'/Insert'}>Zutaten hinzufügen</Button> 
-                        <Button variant="contained" component={Link} to={'/Overview'}>Rezeptübersicht</Button>
-                        <Button variant="contained" component={Link} to={'/Recipe'}>Rezept</Button>
+                    <Typography variant="h3">Bartender</Typography>
+                    <Typography variant="h8">© by SorbTech</Typography>
+                    <ButtonGroup  variant="text" >
+                        <Button component={Link} to={'/Insert'}>Zutaten hinzufügen</Button> 
+                        <Button component={Link} to={'/Overview'}>Rezeptübersicht</Button>
+                        <Button component={Link} to={'/Recipe'}>Rezept</Button>
+                        </ButtonGroup>
                     </Toolbar>
                 </AppBar>
 
               <Switch>
-                <Route path="/Insert" render={() => <Insert state={this.props.state.ingredients} insert={this.props.addIngredient} />} exact />
+                <Route path="/Insert" render={() => <Insert state={this.props.state.ingredients} match={this.props.match} />} exact />
                 <Route path="/Overview" render={() => <Overview state={this.props.state.cocktails} aktiv={this.props.changeActive} />} exact />
                 <Route path="/Recipe" render={() => <Recipe state={this.props.state.cocktails} aktiv={this.props.state.activerecipe} />} exact />
               </Switch>

@@ -1,3 +1,20 @@
+/*
+moje to do's:
+- přidawki přidać
+  - funkciju, kotriž mi jenož recepty pokaza, za kotrež mam přidawki
+    - za to funkciju, kiž pisa wšitke přidawki, kiž su wuzwolene
+    - hišće raz hladać, hač dyrbi checkbox być ... nječini wjele zmysła
+- přehlad receptow
+  - wšitke recepty pokazać, přidatnje hišće matching-rate za tym pisać
+  - snadź rjadowanje lisćiny po rjadom kak jara so přidawki hodźa
+  - jeli njeje match=100% dyrbi najprjedy hišće powěsć přindź, zo dyrbiš nakupować
+    - pak jednoru powěsć abo z ok kneflom
+- recept
+  - nadpisma maja so hišće napisać
+- powšitkownje
+  - styling
+*/
+
 import React, { Component } from 'react';
 import './App.css';
 import {BrowserRouter} from "react-router-dom";
@@ -58,7 +75,8 @@ class App extends React.Component {
       {Ingredient:"Ananassaft", selected:true},
       {Ingredient:"Crown Royal", selected:true},
     ],
-    activerecipe:0
+    activerecipe:0,
+    activeingredient:[],
   }
 
   addIngredientToState = (ingredient) => {
@@ -70,18 +88,24 @@ class App extends React.Component {
   }
 
   match = ()=>{
-    let array = [];
-    this.state.ingredients.map((value) => {array.push(value.Ingredient)});
+    let ingre = [];
+    this.state.ingredients.map((value) => {ingre.push(value.Ingredient)});
     let point;
+ 
     this.state.cocktails.forEach((element) => {
-      console.log(element.Ingredient);
-      console.log(array);
-      console.log(element.match);
-      point = element.Ingredient-array;
+      point = element.Ingredient == ingre;
       console.log(point);
-      //this.setState({element.match:point});
     });
+  
+    this.state.cocktails.forEach((element)=>{
+      var match = ingre.includes(this.state.cocktails[element.id].Ingredient);
+      //this.setState({cocktails[element.id].match:match})
+      console.log(this.state.cocktails[element.id].Ingredient);
+      console.log(ingre);
+      console.log(match);
+    });  
   }
+
 
   
   componentDidMount() {
@@ -92,7 +116,12 @@ class App extends React.Component {
     return (
       <div className="App">
         <BrowserRouter>
-          <Navigation state={this.state} addIngredient={this.addIngredientToState} changeActive={this.changeActiveRecipe}/>
+          <Navigation 
+            state={this.state}
+            addIngredient={this.addIngredientToState}
+            changeActive={this.changeActiveRecipe}
+            match={this.match}  
+          />
         </BrowserRouter>
       </div>
     );

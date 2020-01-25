@@ -1,9 +1,6 @@
 import React from 'react';
 
-
-
 export default function Head(props) {
-    console.log(props.state.Cocktail);
     let imag = require('../../pictures/'+props.state.Cocktail+'.jpg');
 
     return (
