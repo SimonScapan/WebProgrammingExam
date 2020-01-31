@@ -1,22 +1,4 @@
-/*
-moje to do's:
-- přidawki přidać
-  - funkciju, kotriž mi jenož recepty pokaza, za kotrež mam přidawki
-    - za to funkciju, kiž pisa wšitke přidawki, kiž su wuzwolene
-    - hišće raz hladać, hač dyrbi checkbox być ... nječini wjele zmysła
-- přehlad receptow
-  - wšitke recepty pokazać, přidatnje hišće matching-rate za tym pisać
-  - snadź rjadowanje lisćiny po rjadom kak jara so přidawki hodźa
-  - jeli njeje match=100% dyrbi najprjedy hišće powěsć přindź, zo dyrbiš nakupować
-    - pak jednoru powěsć abo z ok kneflom
-- recept
-  - nadpisma maja so hišće napisać
-- powšitkownje
-  - styling
-*/
-
-import React, { Component } from 'react';
-import './App.css';
+import React from 'react';
 import {BrowserRouter} from "react-router-dom";
 
 import Navigation from      './Component/Navigation/Navigation.jsx';
@@ -41,39 +23,39 @@ class App extends React.Component {
     ],
     ingredients:
     [
-      {Ingredient:"Absolut Citron", selected:true},
-      {Ingredient:"Nordhäuser Saurer Apfel", selected:true},
-      {Ingredient:"Galliano", selected:true},
-      {Ingredient:"Midori", selected:true},
-      {Ingredient:"Bombay Sapphire Gin", selected:true},
-      {Ingredient:"Limettensaft", selected:true},
-      {Ingredient:"Zuckersirup", selected:true},
-      {Ingredient:"Kumquats", selected:true},
-      {Ingredient:"Cachaca", selected:true},
-      {Ingredient:"Weißer Rohrzucker", selected:true},
-      {Ingredient:"Limette", selected:true},
-      {Ingredient:"Cointreau", selected:true},
-      {Ingredient:"Cranberrysaft", selected:true},
-      {Ingredient:"Sauza Hornitos", selected:true},
-      {Ingredient:"Cassissee", selected:true},
-      {Ingredient:"Ginger Ale", selected:true},
-      {Ingredient:"Gordon's London Dry Gin", selected:true},
-      {Ingredient:"Zitronensaft", selected:true},
-      {Ingredient:"Soda", selected:true},
-      {Ingredient:"Wodka", selected:true},
-      {Ingredient:"Mount Gay Premium White Rum", selected:true},
-      {Ingredient:"Triple Sec", selected:true},
-      {Ingredient:"Myer's Rum", selected:true},
-      {Ingredient:"Bols Curacao Red", selected:true},
-      {Ingredient:"Noilly Prat", selected:true},
-      {Ingredient:"Oliven", selected:true},
-      {Ingredient:"Cherry Heering", selected:true},
-      {Ingredient:"Zucker", selected:true},
-      {Ingredient:"Benedictine", selected:true},
-      {Ingredient:"Sahne", selected:true},
-      {Ingredient:"Cream of Coconut", selected:true},
-      {Ingredient:"Ananassaft", selected:true},
-      {Ingredient:"Crown Royal", selected:true},
+      {id:0,Ingredient:"Absolut Citron", selected:true},
+      {id:1,Ingredient:"Nordhäuser Saurer Apfel", selected:true},
+      {id:2,Ingredient:"Galliano", selected:true},
+      {id:3,Ingredient:"Midori", selected:true},
+      {id:4,Ingredient:"Bombay Sapphire Gin", selected:true},
+      {id:5,Ingredient:"Limettensaft", selected:true},
+      {id:6,Ingredient:"Zuckersirup", selected:true},
+      {id:7,Ingredient:"Kumquats", selected:true},
+      {id:8,Ingredient:"Cachaca", selected:true},
+      {id:9,Ingredient:"Weißer Rohrzucker", selected:true},
+      {id:10,Ingredient:"Limette", selected:true},
+      {id:11,Ingredient:"Cointreau", selected:true},
+      {id:12,Ingredient:"Cranberrysaft", selected:true},
+      {id:13,Ingredient:"Sauza Hornitos", selected:true},
+      {id:14,Ingredient:"Cassissee", selected:true},
+      {id:15,Ingredient:"Ginger Ale", selected:true},
+      {id:16,Ingredient:"Gordon's London Dry Gin", selected:true},
+      {id:17,Ingredient:"Zitronensaft", selected:true},
+      {id:18,Ingredient:"Soda", selected:true},
+      {id:19,Ingredient:"Wodka", selected:true},
+      {id:20,Ingredient:"Mount Gay Premium White Rum", selected:true},
+      {id:21,Ingredient:"Triple Sec", selected:true},
+      {id:22,Ingredient:"Myer's Rum", selected:true},
+      {id:23,Ingredient:"Bols Curacao Red", selected:true},
+      {id:24,Ingredient:"Noilly Prat", selected:true},
+      {id:25,Ingredient:"Oliven", selected:true},
+      {id:26,Ingredient:"Cherry Heering", selected:true},
+      {id:27,Ingredient:"Zucker", selected:true},
+      {id:28,Ingredient:"Benedictine", selected:true},
+      {id:29,Ingredient:"Sahne", selected:true},
+      {id:30,Ingredient:"Cream of Coconut", selected:true},
+      {id:31,Ingredient:"Ananassaft", selected:true},
+      {id:32,Ingredient:"Crown Royal", selected:true},
     ],
     activerecipe:0,
     activeingredient:[],
@@ -87,29 +69,37 @@ class App extends React.Component {
     this.setState({activerecipe:id})
   }
 
-  match = ()=>{
-    let ingre = [];
-    this.state.ingredients.map((value) => {ingre.push(value.Ingredient)});
-    let point;
- 
-    this.state.cocktails.forEach((element) => {
-      point = element.Ingredient == ingre;
-      console.log(point);
-    });
-  
-    this.state.cocktails.forEach((element)=>{
-      var match = ingre.includes(this.state.cocktails[element.id].Ingredient);
-      //this.setState({cocktails[element.id].match:match})
-      console.log(this.state.cocktails[element.id].Ingredient);
-      console.log(ingre);
-      console.log(match);
-    });  
+  handleChange = (id)=>{
+    if(this.state.ingredients[id].selected){
+      this.state.ingredients[id].selected = false
+      this.forceUpdate()
+    }else{
+      this.state.ingredients[id].selected = true
+      this.forceUpdate()
+    };
   }
-
-
   
-  componentDidMount() {
-    this.match();
+
+  match = (cocktailingre)=>{
+    let myingre=this.state.ingredients.filter((element) => element.selected==true);
+    myingre=[];
+    this.state.ingredients.forEach(element=>{
+        if (element.selected == true){
+          myingre.push(element.Ingredient)
+        }
+    });
+    console.log(myingre);
+    let foo=0;
+    console.log(cocktailingre);
+    cocktailingre.forEach(element => {
+      if(myingre.indexOf(element) !== -1){
+        foo = foo +1
+      } else{
+        return(false)
+      }
+    });
+    console.log(foo);
+    return(true);
   }
   
   render() {
@@ -121,6 +111,7 @@ class App extends React.Component {
             addIngredient={this.addIngredientToState}
             changeActive={this.changeActiveRecipe}
             match={this.match}  
+            handleChange={this.handleChange}
           />
         </BrowserRouter>
       </div>
