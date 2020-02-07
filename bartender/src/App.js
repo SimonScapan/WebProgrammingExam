@@ -3,6 +3,8 @@ import {BrowserRouter} from "react-router-dom";
 
 import Navigation from      './Component/Navigation/Navigation.jsx';
 
+//Initialisierung der Daten von Cocktail und Ingredient
+//Zusätzlich noch der Aktuelle Cocktail aus dem Rezept-view
 class App extends React.Component {
   state = {
     cocktails:
@@ -61,10 +63,13 @@ class App extends React.Component {
     activeingredient:[],
   }
 
+  //möglichkeit neue Zutaten hinzuzufügen ... wird in der jetzigen Version noch nicht benutzt
   addIngredientToState = (ingredient) => {
     this.setState({ingredients:this.state.ingredients.push({Ingredient: ingredient, selected: false})});
   }
 
+  //ändern des gerade aktiven Rezepts ... wichtig für den view Recipe ... dieser zeigt immer das Rezept an, welches gerade aktiv ist
+  //wird benötigt, da zwischen den Seiten gesprungen werden kann
   changeActiveRecipe = (id)=>{
     this.setState({activerecipe:id})
   }
@@ -79,7 +84,7 @@ class App extends React.Component {
     };
   }
   
-
+  //Matchfunktion ... checkt, ob ingredients mit den benötigten Zutaten eines Recepts übereinstimmen ... gitb true oder false Wert als output
   match = (cocktailingre)=>{
     let myingre=this.state.ingredients.filter((element) => element.selected==true);
     myingre=[];
@@ -88,9 +93,7 @@ class App extends React.Component {
           myingre.push(element.Ingredient)
         }
     });
-    console.log(myingre);
     let foo=0;
-    console.log(cocktailingre);
     cocktailingre.forEach(element => {
       if(myingre.indexOf(element) !== -1){
         foo = foo +1
@@ -98,10 +101,10 @@ class App extends React.Component {
         return(false)
       }
     });
-    console.log(foo);
     return(true);
   }
   
+  //hier die Navigation aufgerufen und alle Fiunktionen und Daten mit übergeben
   render() {
     return (
       <div className="App">

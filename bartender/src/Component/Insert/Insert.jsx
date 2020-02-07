@@ -5,6 +5,7 @@ import {Link} from "react-router-dom";
 import Table from "@material-ui/core/Table"
 import { makeStyles } from '@material-ui/core/styles';
 
+// useStyles ist hier quasi die .css mit Material hat man die Möglichkeit direkt in der .jsx das Styling vorzunehmen
 const useStyles = makeStyles(theme => ({
   root: {
     position: 'absolute', 
@@ -16,6 +17,8 @@ const useStyles = makeStyles(theme => ({
 export default function Insert(input) {
   const classes = useStyles();
   let content=[];
+  //alle Elemente aus den Ingredients auslesen
+  //den gespeicherten State der Checkbox der Komponente CheckBox übergeben
   Object.values(input.state).forEach(element=>{
     content.push(
       <tr>

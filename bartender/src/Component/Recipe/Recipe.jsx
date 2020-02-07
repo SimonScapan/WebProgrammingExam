@@ -11,6 +11,7 @@ import Button from '@material-ui/core/Button';
 import DialogContent from '@material-ui/core/DialogContent';
 import { makeStyles } from '@material-ui/core/styles';
 
+// useStyles ist hier quasi die .css mit Material hat man die Möglichkeit direkt in der .jsx das Styling vorzunehmen
 const useStyles = makeStyles(theme => ({
   root: {
     position: 'absolute', 
@@ -21,11 +22,9 @@ const useStyles = makeStyles(theme => ({
 
 export default function Recipe(cockt) {
   const classes = useStyles();
-  console.log(cockt);
-  console.log(cockt.match(cockt.state[cockt.aktiv].Ingredient));
   let input = cockt.match(cockt.state[cockt.aktiv].Ingredient);
-  console.log(input);
   
+  //Funktion, welche schaut, ob alle Ingredients, die benötigt sind auch vorhanden sind
   let match = () => {
     if (input==true){
     return(
@@ -48,7 +47,7 @@ export default function Recipe(cockt) {
     )}
   };
   
-  
+  //folgend werden die drei Unterkomponenten miteinander verknüpft bzw. untereinander eingebunden
   return (
     <table className={classes.root}>
       <tr>

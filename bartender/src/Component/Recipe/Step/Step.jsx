@@ -6,6 +6,8 @@ export default function Step(props) {
     let ste=[];
     let input = props.state.Step;
 
+    //hier analog zu Ingredient iteration über die Steps, die mit dem Cocktail übergeben werden
+    //zusätzlich noch eine Checkbox, die keine Funktion in dem Sinne hat, dass sie Daten handled
     Object.values(input).map((step)=>{
         ste.push(
         <table>

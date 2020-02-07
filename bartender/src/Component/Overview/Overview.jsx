@@ -6,6 +6,7 @@ import Avatar from '@material-ui/core/Avatar';
 import {Link} from "react-router-dom";
 import { makeStyles } from '@material-ui/core/styles';
 
+// useStyles ist hier quasi die .css mit Material hat man die Möglichkeit direkt in der .jsx das Styling vorzunehmen
 const useStyles = makeStyles(theme => ({
   root: {
     position: 'absolute', 
@@ -18,14 +19,11 @@ const useStyles = makeStyles(theme => ({
 export default function Overview(props) {  
   const classes = useStyles();
   let content=[];
-  console.log(props.state);
-
-
+  //Übergabe der Rezepte mit deren Icons an Listelemente
   Object.values(props.state).forEach(element=>{
     let img = require('../pictures/'+element.Cocktail+'.jpg');
     content.push(
       <table className="contentTable">
-      
         <ListItem button alignItems="flex-start" component={Link} to={'/Recipe'} onClick={() => {props.aktiv(element.id)}} >
           <ListItemAvatar >
             <Avatar alt="Beispielbild" src={img} />

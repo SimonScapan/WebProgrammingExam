@@ -9,15 +9,6 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import ButtonGroup from '@material-ui/core/ButtonGroup';
-import { makeStyles } from '@material-ui/core/styles';
-
-const classes = makeStyles(theme => ({
-    root: {
-      position: 'absolute', 
-      left: '8000%', 
-      top: '10%',
-    },
-  }));
 
 
 class Navigation extends React.Component {
@@ -28,7 +19,7 @@ class Navigation extends React.Component {
                     <Toolbar>
                     <Typography variant="h3">Bartender</Typography>
                     <Typography variant="h8">© by SorbTech</Typography>
-                    <ButtonGroup className={classes.root} variant="text" >
+                    <ButtonGroup variant="text" >
                         <Button component={Link} to={'/Insert'}>Zutaten hinzufügen</Button> 
                         <Button component={Link} to={'/Overview'}>Rezeptübersicht</Button>
                         <Button component={Link} to={'/Recipe'}>Rezept</Button>
